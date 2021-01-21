@@ -97,8 +97,10 @@ def is_validated_english_sentence(user_input):
         user_input = user_input.replace(char,'')
     if user_input =='':
         return False
-        
-
+   
+    user_input = user_input.replace(' ','')
+    if user_input=='':
+        return False
     return True
     # ==================================
 
@@ -321,9 +323,11 @@ def main():
         # help
         if is_help_command(user_input):
             print(get_help_message())
+            
         elif is_validated_english_sentence(user_input) :
             user_input = get_cleaned_english_sentence(user_input)
             print(encoding_sentence(user_input))
+            
         elif is_validated_morse_code(user_input):
             print(decoding_sentence(user_input))
         else:
