@@ -301,7 +301,7 @@ def encoding_sentence(english_sentence):
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당 또는 필요에 따라 자유로운 수정
     result = ''
     english_sentence = english_sentence.split()
-    print(english_sentence)
+    
     for word in english_sentence:
         for char in word:
             
@@ -320,7 +320,7 @@ def main():
 
         # help
         if is_help_command(user_input):
-            get_help_message()
+            print(get_help_message())
         elif is_validated_english_sentence(user_input) :
             user_input = get_cleaned_english_sentence(user_input)
             print(encoding_sentence(user_input))
