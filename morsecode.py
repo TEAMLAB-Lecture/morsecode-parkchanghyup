@@ -129,16 +129,6 @@ def is_validated_morse_code(user_input):
     """
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당 또는 필요에 따라 자유로운 수정
-    
-    user_input_replace = user_input
-
-
-    chars = '-. '
-    for char in chars:
-        user_input_replace = user_input_replace.replace(char,'')
-    
-    if len(user_input_replace)> 0 :
-        return False
 
     values = get_morse_code_dict().values()
     user_input = user_input.split()
@@ -179,8 +169,9 @@ def get_cleaned_english_sentence(raw_english_sentence):
     chars = '.,!?'
     for char in chars:
         raw_english_sentence = raw_english_sentence.replace(char,'')
-    return raw_english_sentence.strip()
-    # ==================================
+    result = raw_english_sentence.strip()
+    return result
+# ==================================
 
 
 def decoding_character(morse_character):
@@ -241,9 +232,7 @@ def encoding_character(english_character):
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당 또는 필요에 따라 자유로운 수정
     morse_code_dict = get_morse_code_dict()
-    
-    if english_character in morse_code_dict:
-        return morse_code_dict[english_character]
+    return morse_code_dict[english_character]
     
     
     # ==================================
@@ -323,7 +312,7 @@ def main():
             break
 
         # help
-        if is_help_command(user_input):
+        elif is_help_command(user_input):
             print(get_help_message())
             
         elif is_validated_english_sentence(user_input) :
