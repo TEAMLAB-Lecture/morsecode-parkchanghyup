@@ -114,7 +114,7 @@ def is_validated_english_sentence(user_input):
     if user_input_copy =='':
         return False
     
-    if ''.join(user_input.split())==""::
+    if ''.join(user_input.split())=="":
         return False
     
     return True
@@ -317,7 +317,7 @@ def main():
         elif is_validated_morse_code(user_input): 
             print(decoding_sentence(user_input))
 
-        else: #5
+        else: 
             print("Wrong Input")
     
     # ==================================
